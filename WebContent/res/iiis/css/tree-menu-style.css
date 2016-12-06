@@ -1,0 +1,223 @@
+ol, ul,li  {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+.cd-accordion-menu {
+  max-width: 600px;
+  background: #4d5158;
+}
+.cd-accordion-menu ul {
+  /* by default hide all sub menus */
+  display: none;
+}
+.cd-accordion-menu li {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cd-accordion-menu input[type=checkbox] {
+  /* hide native checkbox */
+  position: absolute;
+  opacity: 0;
+}
+.cd-accordion-menu label, .cd-accordion-menu a {
+  position: relative;
+  display: block;
+  padding: 15px 18px 15px 36px;
+    background: #f7f6eb;
+    box-shadow: inset 0 -1px #dbd9c3;
+    color: #333333;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+ .cd-accordion-menu label:hover,
+ .cd-accordion-menu a:hover {
+    background: #fcfbf0;
+}
+
+
+
+.cd-accordion-menu label::before, .cd-accordion-menu label::after, .cd-accordion-menu a::after {
+  /* icons */
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.cd-accordion-menu label {
+  cursor: pointer;
+}
+.cd-accordion-menu label::before/*, .cd-accordion-menu label::after*/ {
+    background-image: url(../image/cd-icons.png);
+    background-image: url(../image/cd-icons.svg),none; /*浏览器认识url(image.svg), none这个多背景声明，就使用SVG，否则，降级使用上面的png背景*/
+    background-repeat: no-repeat;
+}
+.cd-accordion-menu label::before {
+  /* arrow icon */
+  left: 18px;
+  background-position: 0 0;
+  -webkit-transform: translateY(-50%) rotate(-90deg);
+  -moz-transform: translateY(-50%) rotate(-90deg);
+  -ms-transform: translateY(-50%) rotate(-90deg);
+  -o-transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-50%) rotate(-90deg);
+}
+.cd-accordion-menu label::after {
+  /* folder icons */
+  left: 41px;
+  background-position: -16px 0;
+}
+.cd-accordion-menu a::after {
+  /* image icon */
+  left: 16px;
+}
+.cd-accordion-menu input[type=checkbox]:checked + label::before {
+  /* rotate arrow */
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.cd-accordion-menu input[type=checkbox]:checked + label::after {
+  /* show open folder icon if item is checked */
+  background-position: -32px 0;
+}
+.cd-accordion-menu input[type=checkbox]:checked + label + ul,
+.cd-accordion-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+  /* use label:nth-of-type(n) to fix a bug on safari (<= 8.0.8) with multiple adjacent-sibling selectors*/
+  /* show children when item is checked */
+  display: block;
+}
+.cd-accordion-menu ul label,
+.cd-accordion-menu ul a {
+  background: #fffef3;
+  box-shadow: inset 0 -1px #f1f0e5;
+  padding-left: 55px;
+}
+ .cd-accordion-menu ul label:hover,
+.cd-accordion-menu ul a:hover {
+  background: #fff;
+}
+
+.cd-accordion-menu > li:last-of-type > label,
+.cd-accordion-menu > li:last-of-type > a,
+.cd-accordion-menu > li > ul > li:last-of-type label,
+.cd-accordion-menu > li > ul > li:last-of-type a {
+  box-shadow: none;
+}
+.cd-accordion-menu ul label::before {
+  left: 36px;
+}
+.cd-accordion-menu ul label::after,
+.cd-accordion-menu ul a::after {
+  left: 59px;
+}
+.cd-accordion-menu ul ul label,
+.cd-accordion-menu ul ul a {
+  padding-left: 68px;
+}
+.cd-accordion-menu ul ul label::before {
+  left: 54px;
+}
+.cd-accordion-menu ul ul label::after,
+.cd-accordion-menu ul ul a::after {
+  left: 77px;
+}
+.cd-accordion-menu ul ul ul label,
+.cd-accordion-menu ul ul ul a {
+  padding-left: 100px;
+}
+.cd-accordion-menu ul ul ul label::before {
+  left: 72px;
+}
+.cd-accordion-menu ul ul ul label::after,
+.cd-accordion-menu ul ul ul a::after {
+  left: 95px;
+}
+
+/*
+@media only screen and (min-width: 600px) {
+  .cd-accordion-menu label, .cd-accordion-menu a {
+    padding: 24px 24px 24px 50px;
+    font-size: 1.9rem;
+  }
+  .cd-accordion-menu label::before {
+    left: 24px;
+  }
+  .cd-accordion-menu label::after {
+    left: 53px;
+  }
+  .cd-accordion-menu ul label,
+  .cd-accordion-menu ul a {
+    padding-left: 106px;
+  }
+  .cd-accordion-menu ul label::before {
+    left: 48px;
+  }
+  .cd-accordion-menu ul label::after,
+  .cd-accordion-menu ul a::after {
+    left: 77px;
+  }
+  .cd-accordion-menu ul ul label,
+  .cd-accordion-menu ul ul a {
+    padding-left: 130px;
+  }
+  .cd-accordion-menu ul ul label::before {
+    left: 72px;
+  }
+  .cd-accordion-menu ul ul label::after,
+  .cd-accordion-menu ul ul a::after {
+    left: 101px;
+  }
+  .cd-accordion-menu ul ul ul label,
+  .cd-accordion-menu ul ul ul a {
+    padding-left: 154px;
+  }
+  .cd-accordion-menu ul ul ul label::before {
+    left: 96px;
+  }
+  .cd-accordion-menu ul ul ul label::after,
+  .cd-accordion-menu ul ul ul a::after {
+    left: 125px;
+  }
+}
+*/
+
+.cd-accordion-menu.animated label::before {
+  /* this class is used if you're using jquery to animate the accordion */
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+
+
+.cd-accordion-menu li .active {
+    background: #fff;
+    color: #660022;
+    font-weight: 600;
+    /*margin-left: -1px;*/
+}
+.cd-accordion-menu li .active:hover {
+    background: #fff;
+    color: #660022;
+}

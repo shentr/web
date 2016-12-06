@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>web</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>webRoot</param-name>
+		<param-value>/web</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>user.login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/userlogin</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>user.logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/userlogout</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ueUploadfile</servlet-name>
+		<servlet-class>ueditor.uploadfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ueUploadfile</servlet-name>
+		<url-pattern>/common/ueditor/jsp/ueditorUploadfile</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>addArticlesPost</servlet-name>
+		<servlet-class>com.javaWeb.addArticlesPost</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addArticlesPost</servlet-name>
+		<url-pattern>/admin/addArticlesPost</url-pattern>
+	</servlet-mapping>
+</web-app>
