@@ -1,5 +1,5 @@
 # java web
-web.war export from Eclipse
-Server : Tomcat9.0
-Database : Mysql             
-\web\src\com\javaWeb\connect.java 
+web.war export from Eclipse<br>
+Server : Tomcat9.0<br>
+Database : Mysql<br>
+\web\src\com\javaWeb\connect.java<br> 
